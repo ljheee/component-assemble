@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Created by lijianhua04 on 2019/5/11.
+ *
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,12 +22,11 @@ public class UserServiceTest {
     private UserDAO userDAO;
 
 
-   @Test
-    public void test(){
+    @Test
+    public void test() {
 //       userDAO.getUserList().stream().forEach(System.out::println);
-       userService.queryOrders(10).stream().forEach(System.out::println);
-   }
-
+        userService.queryOrders(10).stream().forEach(System.out::println);
+    }
 
 
 }

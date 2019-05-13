@@ -21,7 +21,7 @@ public class NeedSetFieldValueAspect {
     @Autowired(required = false)
     BeanUtil beanUtil;
 
-    @Around("@annotation(com.ljheee.app.NeedSetFieldValue)")
+    @Around("@annotation(com.ljheee.cache.NeedSetFieldValue)")
     public Object doSetValue(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("======doSetValue");
         Object ret = pjp.proceed();

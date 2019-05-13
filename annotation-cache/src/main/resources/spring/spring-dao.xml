@@ -18,7 +18,7 @@
     <aop:aspectj-autoproxy/>
 
     <!--扫描,Controller类-->
-    <context:component-scan base-package="com.ljheee.app"/>
+    <context:component-scan base-package="com.ljheee.cache"/>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -45,14 +45,14 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
 
-        <property name="typeAliasesPackage" value="com.ljheee.app.entity"/>
+        <property name="typeAliasesPackage" value="com.ljheee.cache.entity"/>
 
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
     <!-- spring与mybatis整合配置，扫描所有dao,指定的映射器类是接口,接口方法可以用注解来指定 SQL 语句,但是 MyBatis 的映射器 XML 文件也可以用。 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="com.ljheee.app.dao"
+          p:basePackage="com.ljheee.cache.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 
 </beans>

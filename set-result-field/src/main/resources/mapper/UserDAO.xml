@@ -6,9 +6,16 @@
 <!-- Mapper.xml 必须要包含上面的DTD头部（DOCTYPE）  -->
 
 <!-- namespace为命名空间，应该是mapper接口的全称-->
-<mapper namespace="com.ljheee.UserDAO">
+<mapper namespace="com.ljheee.app.dao.UserDAO">
 
-    <insert id="addUser" parameterType="com.ljheee.User">
+    <resultMap id="userResultMap" type="com.ljheee.app.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="passwd" property="passwd"/>
+        <result column="appid" property="appid"/>
+    </resultMap>
+
+    <insert id="addUser" parameterType="com.ljheee.app.entity.User">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT last_insert_id()
         </selectKey>
@@ -34,16 +41,6 @@
        INSERT INTO USER (id,username,birthday,sex,address) value (#{id},#{username},#{birthday},#{sex},#{address})
        -->
 
-
-
-
-    <resultMap id="userResultMap" type="com.ljheee.User"
-               >
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="passwd" property="passwd"/>
-        <result column="appid" property="appid"/>
-    </resultMap>
 
     <select id="getUserList" resultMap="userResultMap">
         SELECT * FROM test.user

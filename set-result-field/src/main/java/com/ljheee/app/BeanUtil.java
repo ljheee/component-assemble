@@ -49,6 +49,7 @@ public class BeanUtil implements ApplicationContextAware {
                     // 通过方法名+参数类型获取方法(重载多个同名方法)
                     // 找到 UserDAO.getUserById(uid)方法
                     Method method = beanClass.getMethod(methodName, clazz.getDeclaredField(paramField).getType());
+                    System.out.println(method);
 
                     //参数需要从 Order对象中getUid()
                     Method paramValueGetMethod = clazz.getMethod("get" + StringUtils.capitalize(paramField));
