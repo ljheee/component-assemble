@@ -1,9 +1,6 @@
 package com.ljheee.cache.entity;
 
 
-import com.ljheee.cache.SetValue;
-import com.ljheee.cache.dao.UserDAO;
-
 import java.io.Serializable;
 
 /**
@@ -15,8 +12,6 @@ public class Order implements Serializable {
     private Integer id;
     private Integer uid;
 
-    // 标识：userName属性值，从UserDAO.getUserById(uid) 得到的对象name属性获取
-    @SetValue(beanClass = UserDAO.class, method = "getUserById", paramField = "uid", targetFiled = "name")
     private String userName;
 
     public Order() {

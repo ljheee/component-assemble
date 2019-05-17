@@ -17,12 +17,11 @@ public class UserServiceCacheTest {
     private UserService userService;
 
 
-   @Test
-    public void test(){
-//       userDAO.getUserList().stream().forEach(System.out::println);
-       userService.queryOrders(10).stream().forEach(System.out::println);
-   }
-
+    @Test
+    public void testCache() {
+        System.out.println(userService.queryUser(10));
+        System.out.println(userService.queryUser(10));//第二次 走缓存
+    }
 
 
 }
